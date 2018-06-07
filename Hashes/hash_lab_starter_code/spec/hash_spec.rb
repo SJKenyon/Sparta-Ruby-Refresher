@@ -43,17 +43,38 @@ describe 'Create tests for a hash' do
   end
 
   it 'each fruit should have 4 keys' do
-    expect(small_fruit_nutrition_details[:plums].keys.count).to eq 4
-    expect(small_fruit_nutrition_details[:apple].keys.count).to eq 4
-    expect(small_fruit_nutrition_details[:kiwifruit].keys.count).to eq 4
-    expect(small_fruit_nutrition_details[:avocado].keys.count).to eq 4
+    # expect(small_fruit_nutrition_details[:plums].keys.count).to eq 4
+    # expect(small_fruit_nutrition_details[:apple].keys.count).to eq 4
+    # expect(small_fruit_nutrition_details[:kiwifruit].keys.count).to eq 4
+    # expect(small_fruit_nutrition_details[:avocado].keys.count).to eq 4
+
+    small_fruit_nutrition_details.each do |keys, value|
+      expect(value.keys.length).to eq 4
+    end
   end
 
   it 'all calories should be between 40 to 150' do
-    expect(small_fruit_nutrition_details[:plums][:calories]).to be_between(40, 150).inclusive
-    expect(small_fruit_nutrition_details[:apple][:calories]).to be_between(40, 150).inclusive
-    expect(small_fruit_nutrition_details[:kiwifruit][:calories]).to be_between(40, 150).inclusive
-    expect(small_fruit_nutrition_details[:avocado][:calories]).to be_between(40, 150).inclusive
+    # expect(small_fruit_nutrition_details[:plums][:calories]).to be_between(40, 150).inclusive
+    # expect(small_fruit_nutrition_details[:apple][:calories]).to be_between(40, 150).inclusive
+    # expect(small_fruit_nutrition_details[:kiwifruit][:calories]).to be_between(40, 150).inclusive
+    # expect(small_fruit_nutrition_details[:avocado][:calories]).to be_between(40, 150).inclusive
+
+    # fruitkeys = small_fruit_nutrition_details.keys
+    # i = 0
+    #
+    # while i < fruitkeys.length do
+    #     expect(small_fruit_nutrition_details[fruitkeys[i]][:calories]).to be_between(40, 150).inclusive
+    #     i += 1
+    # end
+
+    small_fruit_nutrition_details.each do |key, value|
+      value.each do |k, v|
+        if k == :calories
+          expect(v).to be_between(40, 150).inclusive
+        end
+      end
+    end
+
   end
 
 end
