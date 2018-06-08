@@ -1,8 +1,10 @@
 require "json"
 
+# Makes the hash in the file into a string
 json = File.read("json_example.json")
 
 p json
+# Will show the class of the variable json
 p json.class
 
 # Changes it into a hash
