@@ -2,7 +2,10 @@ require 'json'
 
 class ParseJson
 
-  attr_accessor :json_file
+  # Accessor gives you the ability to read and write
+  # attr_accessor :json_file
+  # Reader gives you the ability to only read
+  attr_reader :json_file
 
   def initialize(json_file)
     @json_file = JSON.parse(File.read(json_file))
